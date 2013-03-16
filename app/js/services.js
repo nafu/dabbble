@@ -8,9 +8,16 @@
 angular.module('myApp.services', []).
   value('version', '0.1').
   factory('dribbble', function($http) {
+    function load(path, params) {
+      return $http.jsonp('http://api.dribbble.com' + path + '?callback=JSON_CALLBACK');
+    }
+
     return {
       list: function (type) {
-        return $http.jsonp('http://api.dribbble.com/shots/' + type + '?callback=JSON_CALLBACK');
+        return load("/shots/" + type);
+      },
+      shot: function (id) {
+        return load("/shots/" + id);
       }
     };
   });
