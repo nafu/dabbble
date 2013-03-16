@@ -7,4 +7,12 @@ angular.module('myApp.filters', []).
     return function(text) {
       return String(text).replace(/\%VERSION\%/mg, version);
     }
-  }]);
+  }]).
+  filter('dabbbleDate', function($filter) {
+    return function(value, format) {
+      if (value) {
+        value = Date.parse(value);
+      }
+      return $filter('date')(value, format);
+    }
+  });
