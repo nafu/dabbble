@@ -1,30 +1,47 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.navbar {
+  margin-top: 20px;
 }
 
-.menu:before {
-  content: "[";
+.shot .title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.menu:after {
-  content: "]";
+
+.stats {
+  background: #CCC;
+  opacity: 0.5;
+  text-align: center;
+  padding: 4px 0;
 }
 
-.menu > li {
-  display: inline;
+.stats .stat {
+  padding: 5px;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.shot_image {
+  width: 100%;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+
+.shot_header {
+  margin-bottom: 20px;
+}
+
+.shot_header h1 {
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+.shot_header img {
+  height: 60px;
+}
+
+
+.comment img {
+  height: 60px;
+  width: 60px;
 }
