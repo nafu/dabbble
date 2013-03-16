@@ -3,21 +3,20 @@
 /* Controllers */
 
 
-function ShotsListCtrl($scope, $routeParams, $http, dribbble) {
+function ShotsListCtrl($scope, $routeParams, dribbble) {
   var list = $routeParams.list;
 
   dribbble.list(list).then(function (data) {
     $scope.list = data.data;
   })
 }
-ShotsListCtrl.$inject = ['$scope', '$routeParams', '$http', 'dribbble'];
+ShotsListCtrl.$inject = ['$scope', '$routeParams', 'dribbble'];
 
-function ShotsCtrl($scope, $routeParams, $http) {
+function ShotsCtrl($scope, $routeParams, dribbble) {
   var id = $routeParams.id;
 
-  $http.jsonp('http://api.dribbble.com/shots/' + id + '?callback=JSON_CALLBACK').then(function (data) {
+  dribbble.shot(id).then(function (data) {
     $scope.shot = data.data;
-    console.log(data);
-  });
+  })
 }
-ShotsCtrl.$inject = ['$scope', '$routeParams', '$http'];
+ShotsCtrl.$inject = ['$scope', '$routeParams', 'dribbble'];
